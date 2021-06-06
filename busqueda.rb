@@ -1,12 +1,3 @@
-ARGV.each do |param|
-    x = 0
-    p param.to_i
-    puts ventas.has_value?(param)
-end
-
-
-
-
 ventas = {
 Enero: 15000,
 Febrero: 22000,
@@ -22,4 +13,15 @@ Noviembre: 91000,
 Diciembre: 21000
 }
 
-# puts ventas.has_value?(x)
+
+ARGV.each do |param| #obten todos los valores ingresados y almacenas en param
+    param = param.to_i
+    if ventas.has_value?(param) #pregunta si param pertenece al hash
+        ventas.each do |k, v| #itera el hash completo
+            puts k if v == param #imprime el key si value es igual a param
+        
+        end
+    else
+        puts 'no encontrado'
+    end
+end

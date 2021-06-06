@@ -12,3 +12,17 @@ Octubre: 21500,
 Noviembre: 91000,
 Diciembre: 21000
 }
+
+
+puts ventas.size/4
+
+quarters = {}
+ventas.each do |k, v|
+    ventas.select do |k, v|
+        puts ventas[k]
+        quarters[k] = v
+        ventas.delete(:k)
+        
+    end
+    # puts quarters
+end
