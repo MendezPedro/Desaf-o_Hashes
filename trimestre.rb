@@ -14,15 +14,21 @@ Diciembre: 21000
 }
 
 
-puts ventas.size/4
-
 quarters = {}
-ventas.each do |k, v|
-    ventas.select do |k, v|
-        puts ventas[k]
-        quarters[k] = v
-        ventas.delete(:k)
-        
+i = 0
+q1 = 0
+x = "Q1"
+ventas.select do |k, v|
+    
+    q1 += v #sumo los valores por cada iteración
+    i += 1 
+    if i == 3 #los trimestre se dividen en 3 meses
+        quarters[x] = q1 #agrego a quarters la suma de 3 meses con la key Q1
+        x = x.next #modifico Q1 a Q2
+        i = 0 #reinicio la cuenta de meses
+        q1 = 0 #reinicio la suma
     end
-    # puts quarters
 end
+    puts quarters
+
+    #se puede realizar con el metodo  .each_slice()
